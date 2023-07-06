@@ -4,3 +4,6 @@ Add custom headers to each request that is intercepted by Burp Suite. For exampl
 
 ## Usage
 Download the _.jar_ from the releases page and add it under your extensions.
+
+## References
+Template taken from https://github.com/PortSwigger/burp-extensions-montoya-api-examples/tree/main/proxyhandler/src/main/java/example/proxyhandler
