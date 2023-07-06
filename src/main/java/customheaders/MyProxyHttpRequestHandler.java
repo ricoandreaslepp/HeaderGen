@@ -21,24 +21,9 @@ class MyProxyHttpRequestHandler implements ProxyRequestHandler {
      */
     @Override
     public ProxyRequestReceivedAction handleRequestReceived(InterceptedRequest interceptedRequest) {
-        //Drop all post requests
-        /*if (interceptedRequest.method().equals("POST")) {
-            return ProxyRequestReceivedAction.drop();
-        }
-
-        //Do not intercept any request with foo in the url
-        if (interceptedRequest.url().contains("foo")) {
-            return ProxyRequestReceivedAction.doNotIntercept(interceptedRequest);
-        }
-
-        //If the content type is json, highlight the request and follow burp rules for interception
-        if (interceptedRequest.contentType() == JSON) {
-            return ProxyRequestReceivedAction.continueWith(interceptedRequest, interceptedRequest.annotations().withHighlightColor(RED));
-        }*/
-        return ProxyRequestReceivedAction.continueWith(interceptedRequest.withAddedHeader(HttpHeader.httpHeader("Custom-header")));
-
-        //Intercept all other requests
-        //return ProxyRequestReceivedAction.intercept(interceptedRequest);
+        // Add random UUID header to the intercepted request
+        HttpHeader uuid_header = HttpHeader.httpHeader("Random-Token", GenerateRandomUUID.generateUUID());
+        return ProxyRequestReceivedAction.continueWith(interceptedRequest.withAddedHeader(uuid_header));
     }
 
     /**

@@ -18,11 +18,6 @@ import static burp.api.montoya.core.HighlightColor.BLUE;
 class MyProxyHttpResponseHandler implements ProxyResponseHandler {
     @Override
     public ProxyResponseReceivedAction handleResponseReceived(InterceptedResponse interceptedResponse) {
-        //Highlight all responses that have username in them
-        if (interceptedResponse.bodyToString().contains("username")) {
-            return ProxyResponseReceivedAction.continueWith(interceptedResponse, interceptedResponse.annotations().withHighlightColor(BLUE));
-        }
-
         return ProxyResponseReceivedAction.continueWith(interceptedResponse);
     }
 
