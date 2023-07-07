@@ -17,9 +17,9 @@ import burp.api.montoya.proxy.http.ProxyRequestHandler;
 import burp.api.montoya.proxy.http.ProxyRequestReceivedAction;
 import burp.api.montoya.proxy.http.ProxyRequestToBeSentAction;
 
-class MyProxyHttpRequestHandler implements ProxyRequestHandler {
+class ProxyHttpRequestHandler implements ProxyRequestHandler {
     private final Logging logging;
-    public MyProxyHttpRequestHandler(MontoyaApi api) {
+    public ProxyHttpRequestHandler(MontoyaApi api) {
         this.logging = api.logging();
     }
 

@@ -15,11 +15,9 @@ import burp.api.montoya.proxy.http.ProxyResponseHandler;
 import burp.api.montoya.proxy.http.ProxyResponseReceivedAction;
 import burp.api.montoya.proxy.http.ProxyResponseToBeSentAction;
 
-import static burp.api.montoya.core.HighlightColor.BLUE;
-
-class MyProxyHttpResponseHandler implements ProxyResponseHandler {
+class ProxyHttpResponseHandler implements ProxyResponseHandler {
     private final Logging logging;
-    public MyProxyHttpResponseHandler(MontoyaApi api) {
+    public ProxyHttpResponseHandler(MontoyaApi api) {
         this.logging = api.logging();
     }
 
