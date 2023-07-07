@@ -27,7 +27,7 @@ public class AddHeaderWithCustomValue implements BurpExtension
         logging.logToOutput("Logger initialized!");
 
         // register proxy handlers with Burp.
-        api.proxy().registerRequestHandler(new MyProxyHttpRequestHandler());
-        api.proxy().registerResponseHandler(new MyProxyHttpResponseHandler());
+        api.proxy().registerRequestHandler(new MyProxyHttpRequestHandler(api));
+        api.proxy().registerResponseHandler(new MyProxyHttpResponseHandler(api));
     }
 }
