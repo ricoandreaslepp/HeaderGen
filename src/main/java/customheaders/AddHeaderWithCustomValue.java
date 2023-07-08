@@ -10,6 +10,7 @@ package customheaders;
 
 import burp.api.montoya.BurpExtension;
 import burp.api.montoya.MontoyaApi;
+import burp.api.montoya.http.handler.HttpHandler;
 import burp.api.montoya.logging.Logging;
 
 //Burp will auto-detect and load any class that extends BurpExtension.
@@ -29,5 +30,7 @@ public class AddHeaderWithCustomValue implements BurpExtension
         // register proxy handlers with Burp.
         api.proxy().registerRequestHandler(new ProxyHttpRequestHandler(api));
         api.proxy().registerResponseHandler(new ProxyHttpResponseHandler(api));
+
+        api.http().registerHttpHandler(new HttpRequestHandler(api));
     }
 }
